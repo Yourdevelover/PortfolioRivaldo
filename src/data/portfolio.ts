@@ -141,7 +141,7 @@ export const projects = [
     subtitle: 'Monitoring Jaringan LAN',
     description: 'Alat monitoring sederhana untuk jaringan LAN lokal yang menampilkan status koneksi, melakukan troubleshooting otomatis, dan mencatat log aktivitas jaringan untuk lingkungan lab kampus.',
     tech: ['Python', 'Networking', 'Bash', 'Linux', 'SQL'],
-    image: 'https://i.ibb.co.com/chBSb8jK/image.png',
+    image: 'https://i.ibb.co.com/7J3vZyWK/image.png',
     github: 'https://github.com/Yourdevelover/NetWatch',
     // live: '#',
     featured: false,
