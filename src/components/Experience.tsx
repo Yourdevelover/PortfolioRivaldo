@@ -1,173 +1,135 @@
-import { GraduationCap, BookOpen, Code2, Database, BarChart3, Layout, Palette } from 'lucide-react';
+import { GraduationCap, BookOpen, Sparkles } from 'lucide-react';
 import { useInView } from '../hooks/useInView';
 import { experiences, academics } from '../data/portfolio';
 import DisplayCards from './DisplayCards';
-
-const courseCards = [
-  {
-    icon: <Code2 className="size-4 text-apple-blue" />,
-    title: 'Pemrograman & Web',
-    description: 'Algoritma, Pemrograman Web, Java, Python, PHP, JavaScript, React',
-    tag: '6 MK',
-    className: 'hover:-translate-y-10 before:absolute before:w-full before:h-full before:rounded-apple before:outline-1 before:outline-white/[0.06] before:content-[\'\'] before:bg-black/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 relative',
-  },
-  {
-    icon: <Database className="size-4 text-apple-cyan" />,
-    title: 'Database & Data',
-    description: 'Database Management, SQL, PostgreSQL, Data Analysis, DBeaver',
-    tag: '3 MK',
-    className: 'translate-x-10 translate-y-16 hover:-translate-y-[-25px] before:absolute before:w-full before:h-full before:rounded-apple before:outline-1 before:outline-white/[0.06] before:content-[\'\'] before:bg-black/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 relative',
-  },
-  {
-    icon: <Layout className="size-4 text-apple-green" />,
-    title: 'Sistem & Infrastruktur',
-    description: 'Sistem Informasi, Jaringan Komputer, Sistem Operasi, Cloud Computing',
-    tag: '4 MK',
-    className: 'translate-x-20 translate-y-32 hover:-translate-y-[-90px] relative',
-  },
-];
-
-const managementCards = [
-  {
-    icon: <BarChart3 className="size-4 text-apple-purple" />,
-    title: 'Manajemen & Bisnis',
-    description: 'Software Engineering (SDLC), ERP, E-Business, Manajemen TI',
-    tag: '4 MK',
-    className: 'hover:-translate-y-10 before:absolute before:w-full before:h-full before:rounded-apple before:outline-1 before:outline-white/[0.06] before:content-[\'\'] before:bg-black/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 relative',
-  },
-  {
-    icon: <BookOpen className="size-4 text-apple-orange" />,
-    title: 'Riset & Akademik',
-    description: 'Metodologi Penelitian, Penulisan Akademik, Format APA, Skripsi',
-    tag: '3 MK',
-    className: 'translate-x-10 translate-y-16 hover:-translate-y-[-25px] before:absolute before:w-full before:h-full before:rounded-apple before:outline-1 before:outline-white/[0.06] before:content-[\'\'] before:bg-black/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0 relative',
-  },
-  {
-    icon: <Palette className="size-4 text-apple-pink" />,
-    title: 'Desain & Praktik',
-    description: 'UI/UX Design, Adobe Photoshop, Illustrator, Video Editing, Branding',
-    tag: 'Praktik',
-    className: 'translate-x-20 translate-y-32 hover:-translate-y-[-90px] relative',
-  },
-];
+import { courseCards, managementCards } from '../data/experienceCards';
+import TiltCard from './TiltCard';
 
 export default function Experience() {
   const { ref, isInView } = useInView(0.1);
 
   return (
     <section id="experience" className="section-padding relative">
-      {/* Divider */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-white/[0.06]" />
+      {/* Liquid Glass Divider Line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
       <div className="relative max-w-5xl mx-auto" ref={ref}>
         {/* Header */}
-        <div className={`text-center transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <p className="section-eyebrow mb-4">Perjalanan</p>
+        <div className={`text-center transition-all duration-500 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <div className="section-eyebrow mb-4 justify-center">
+            <Sparkles size={14} className="text-sky-400" />
+            <span>Rekam Jejak & Pengalaman</span>
+          </div>
           <h2 className="section-headline">
             Belajar dan{' '}
             <span className="apple-gradient-text">berkembang.</span>
           </h2>
           <p className="section-subheadline mt-4 max-w-xl mx-auto">
-            Akademik, pengalaman kerja, dan kompetensi yang terus diasah.
+            Jejak akademik, pengalaman proyek profesional, dan kompetensi teruji.
           </p>
         </div>
 
-        {/* Display Cards — Course categories */}
-        <div className={`mt-16 sm:mt-20 transition-all duration-700 delay-200 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <h3 className="text-lg font-bold text-white mb-2 flex items-center gap-2">
-            <GraduationCap size={20} className="text-apple-blue" />
-            Mata Kuliah Inti
-          </h3>
-          <p className="text-sm text-white/40 mb-8">
-            Kursus yang membentuk fondasi keahlian — hover kartu untuk detail.
-          </p>
+        {/* Course Cards Grid */}
+        <div className={`mt-14 sm:mt-16 transition-all duration-500 delay-150 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <div className="text-center mb-8">
+            <h3 className="text-xl font-bold text-white mb-2 flex items-center justify-center gap-2">
+              <GraduationCap size={22} className="text-sky-400" />
+              Modul Akademik Inti
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-400">
+              Kelompok mata kuliah utama S1 Sistem Informasi
+            </p>
+          </div>
 
-          <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-8 lg:gap-16">
+          <div className="grid md:grid-cols-2 gap-6 items-start">
             <DisplayCards cards={courseCards} />
             <DisplayCards cards={managementCards} />
           </div>
         </div>
 
-        {/* Full course list */}
-        <div className={`mt-40 transition-all duration-700 delay-400 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <div className="apple-glass p-6 sm:p-8">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="p-2.5 rounded-apple-sm bg-apple-blue/10 text-apple-blue">
-                <GraduationCap size={20} />
+        {/* Full Coursework List with TiltCard */}
+        <div className={`mt-12 transition-all duration-500 delay-300 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <TiltCard className="p-6 sm:p-8">
+            <div className="flex items-center gap-3.5 mb-5">
+              <div className="p-3 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 shrink-0">
+                <GraduationCap size={22} />
               </div>
-              <h3 className="text-base font-bold text-white">Daftar Lengkap Mata Kuliah</h3>
+              <div>
+                <h3 className="text-base font-bold text-white">Daftar Lengkap Mata Kuliah Inti</h3>
+                <p className="text-xs text-slate-400">Kurikulum S1 Sistem Informasi</p>
+              </div>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 sm:gap-2.5">
               {academics.coursework.map((course) => (
-                <span key={course} className="apple-tag">
+                <span key={course} className="apple-tag hover:border-sky-400/50 hover:text-white transition-all cursor-default">
                   {course}
                 </span>
               ))}
             </div>
-          </div>
+          </TiltCard>
         </div>
 
-        {/* Thesis */}
-        <div className={`mt-4 sm:mt-5 transition-all duration-700 delay-500 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <div className="apple-glass p-6 sm:p-8">
-            <div className="flex items-center gap-3 mb-5">
-              <div className="p-2.5 rounded-apple-sm bg-apple-blue/10 text-apple-blue">
-                <BookOpen size={20} />
+        {/* Skripsi Status with TiltCard */}
+        <div className={`mt-6 transition-all duration-500 delay-400 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <TiltCard className="p-6 sm:p-8">
+            <div className="flex items-center gap-3.5 mb-4">
+              <div className="p-3 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 shrink-0">
+                <BookOpen size={22} />
               </div>
-              <h3 className="text-base font-bold text-white">Skripsi</h3>
+              <h3 className="text-base font-bold text-white">Status Tugas Akhir / Skripsi</h3>
             </div>
-            <p className="text-sm text-white/70 font-medium leading-relaxed mb-3">
+            <p className="text-sm text-slate-200 font-medium leading-relaxed mb-4">
               {academics.thesis.title}
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="px-3 py-1 text-xs font-medium rounded-full bg-apple-blue/10 text-apple-blue border border-apple-blue/20">
+              <span className="px-3.5 py-1 text-xs font-bold rounded-full bg-sky-500/15 text-sky-400 border border-sky-500/30">
                 {academics.thesis.status}
               </span>
               <span className="apple-tag">
                 {academics.thesis.methodology}
               </span>
             </div>
-          </div>
+          </TiltCard>
         </div>
 
-        {/* Timeline */}
-        <div className="mt-16 sm:mt-20 relative">
-          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-white/[0.08]" />
+        {/* Experience Timeline */}
+        <div className="mt-16 relative">
+          <div className="absolute left-4 md:left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-sky-400 via-blue-500 to-transparent" />
 
-          <div className="space-y-6 sm:space-y-8">
+          <div className="space-y-6">
             {experiences.map((exp, i) => (
               <div
                 key={exp.role + exp.company}
-                className={`relative pl-12 md:pl-16 transition-all duration-700 ${
+                className={`relative pl-12 md:pl-16 transition-all duration-500 ${
                   isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
-                style={{ transitionDelay: `${600 + i * 200}ms` }}
+                style={{ transitionDelay: `${450 + i * 150}ms` }}
               >
-                {/* Timeline dot */}
-                <div className="absolute left-2.5 md:left-4 top-1.5 w-3.5 h-3.5 rounded-full border-2 border-apple-blue bg-black z-10">
-                  <div className="absolute inset-0.5 rounded-full bg-apple-blue" />
+                {/* Glowing Timeline Dot */}
+                <div className="absolute left-2.5 md:left-4 top-3 w-4 h-4 rounded-full border-2 border-sky-400 bg-[#030712] z-10 shadow-[0_0_12px_#38bdf8]">
+                  <div className="absolute inset-0.5 rounded-full bg-sky-400 animate-pulse" />
                 </div>
 
-                <div className="apple-glass-hover p-5 sm:p-6 md:p-8 group">
+                <TiltCard className="p-6 sm:p-8">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                    <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-apple-blue/90 transition-colors">
+                    <h3 className="text-lg font-bold text-white">
                       {exp.role}
                     </h3>
-                    <span className="text-xs font-mono text-apple-blue/80 bg-apple-blue/10 px-3 py-1 rounded-full w-fit border border-apple-blue/15">
+                    <span className="text-xs font-mono font-bold text-sky-400 bg-sky-500/10 px-3.5 py-1 rounded-full w-fit border border-sky-500/20">
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-sm font-medium text-white/60 mb-3">{exp.company}</p>
-                  <p className="text-sm text-white/40 leading-relaxed mb-4">{exp.description}</p>
-                  <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-1.5">
+                  <p className="text-xs font-semibold text-slate-300 mb-3">{exp.company}</p>
+                  <p className="text-xs sm:text-sm text-slate-400 leading-relaxed mb-4 font-normal">{exp.description}</p>
+                  <ul className="grid sm:grid-cols-2 gap-x-4 gap-y-2">
                     {exp.highlights.map((h) => (
-                      <li key={h} className="flex items-start gap-2 text-sm text-white/40">
-                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-apple-blue/60 flex-shrink-0" />
+                      <li key={h} className="flex items-start gap-2 text-xs sm:text-sm text-slate-300">
+                        <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-sky-400 shrink-0" />
                         {h}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </TiltCard>
               </div>
             ))}
           </div>

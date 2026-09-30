@@ -37,10 +37,10 @@ export const navLinks = [
 ];
 
 export const personalBio = {
-  headline: "Full-Stack Web, Mobile & UI/UX Developer",
-  summary: "Berdedikasi dengan keahlian mendalam dalam pengembangan Full-Stack Web, Mobile Application, dan UI/UX Design.",
-  fullBio: `Full-Stack Web, Mobile Application, dan UI/UX Design. Memiliki rekam jejak dalam membangun solusi digital menggunakan framework modern seperti Next.js, Laravel, dan Flutter, serta pengelolaan basis data PostgreSQL dan MySQL. Berpengalaman dalam siklus DevOps mulai dari manajemen repositori Git, kontainerisasi Docker, konfigurasi server Nginx, hingga pemanfaatan cloud platform seperti Supabase dan Vercel.`,
-  shortDesc: "Membangun solusi web full-stack, aplikasi mobile, dan antarmuka mutakhir dengan Next.js, Flutter, Laravel, serta infrastruktur cloud modern.",
+  headline: "Full-Stack Developer & UI/UX Designer",
+  summary: "Full-Stack Developer & UI/UX Designer, dengan keahlian dalam pengembangan web dan aplikasi mobile. Berpengalaman membangun solusi digital menggunakan Next.js, Laravel, dan Flutter, serta mengelola database PostgreSQL dan MySQL. Terbiasa menangani siklus DevOps—mulai dari Git, Docker, dan Nginx hingga deployment di Supabase dan Vercel. Mampu menjembatani kebutuhan bisnis dan teknologi untuk menciptakan produk digital yang inovatif, efisien, dan terukur.",
+  fullBio: `Berdedikasi dengan keahlian mendalam dalam pengembangan Full-Stack Web, Mobile Application, dan UI/UX Design. Memiliki rekam jejak dalam membangun solusi digital menggunakan framework modern seperti Next.js, Laravel, dan Flutter, serta pengelolaan basis data PostgreSQL dan MySQL. Berpengalaman dalam siklus DevOps mulai dari manajemen repositori Git, kontainerisasi Docker, konfigurasi server Nginx, hingga pemanfaatan cloud platform seperti Supabase dan Vercel. Terampil menyelaraskan analisis bisnis dengan teknologi untuk menciptakan produk digital yang inovatif, efisien, dan berdampak luas.`,
+  shortDesc: "Memiliki keahlian mendalam dalam Full-Stack Web, Mobile Application, dan UI/UX Design. Pengalaman dengan Next.js, Laravel, Flutter, PostgreSQL, MySQL, Docker, Nginx, Supabase, dan Vercel.",
 };
 
 export const skills = [
@@ -107,23 +107,21 @@ export const projects = [
     github: 'https://github.com/Yourdevelover/Risa-AI-asisten',
     live: 'https://risa-ai-asisten.vercel.app/',
     featured: false,
-    
   },
   {
     title: 'GatePass',
     subtitle: 'NFC & QR Parking Solution',
-    description: 'GatePass dirancang untuk mendukung konsep smart city, mengintegrasikan teknologi modern dengan kebutuhan sehari-hari. Sistem ini  mempermudah pengguna dalam melakukan pembayaran parkir secara cepat dan aman.',
+    description: 'GatePass dirancang untuk mendukung konsep smart city, mengintegrasikan teknologi modern dengan kebutuhan sehari-hari. Sistem ini mempermudah pengguna dalam melakukan pembayaran parkir secara cepat dan aman.',
     tech: ['React', 'TypeScript', 'PostgreSQL', 'Tailwind CSS', 'Vite'],
     image: 'https://i.ibb.co.com/8nVzFwgt/gpt-image-2-a-cinematic-photo-of-Gate-Pass-sistem-pembayaran-parkir-online-melalui-smarphone-0.jpg',
     github: 'https://github.com/Yourdevelover/GatePass',
     live: 'https://gate-pass-jade.vercel.app/',
     featured: true,
-    
   },
   {
     title: 'Design',
     subtitle: 'Portofolio Kreatif & Desain',
-    description: 'koleksi karya desain grafis mencakup branding, ilustrasi digital, editing foto, dan materi promosi. Dikerjakan menggunakan Adobe Photoshop dan Illustrator untuk berbagai kebutuhan klien dan organisasi.',
+    description: 'Koleksi karya desain grafis mencakup branding, ilustrasi digital, editing foto, dan materi promosi. Dikerjakan menggunakan Adobe Photoshop dan Illustrator untuk berbagai kebutuhan klien dan organisasi.',
     tech: ['Adobe Photoshop', 'Adobe Illustrator', 'Inkscape', 'Figma', 'Canva', 'Capcut'],
     image: 'https://i.ibb.co.com/HTxP0Lms/image.png',
     github: 'https://github.com/Yourdevelover/PortFolioDesign',
@@ -133,22 +131,20 @@ export const projects = [
   {
     title: 'FixNow',
     subtitle: 'Service Marketplace',
-    description: 'Proyek ini merupakan tugas kuliah yang dikembangkan menggunakan Laravel sebagai framework utama, dengan MySQL sebagai basis data, serta dihosting pada platform InfinityFree ',
-    tech: ['Laravel 10', 'php', 'Tailwind CSS', 'MySQL '],
+    description: 'Proyek ini merupakan solusi digital yang dikembangkan menggunakan Laravel sebagai framework utama, dengan MySQL sebagai basis data, serta dihosting pada platform cloud modern.',
+    tech: ['Laravel 10', 'PHP', 'Tailwind CSS', 'MySQL'],
     image: 'https://i.ibb.co.com/XrJhzm43/gpt-image-2-Namanya-adalah-Fix-Now-web-solusi-modern-untuk-kendala-perangkat-elektronik-rusak-0.jpg',
     github: 'https://github.com/Yourdevelover/fixnow',
     live: 'https://fixnow.freedev.app',
     featured: true,
-    
   },
   {
     title: 'NetWatch',
     subtitle: 'Monitoring Jaringan LAN',
-    description: 'Alat monitoring sederhana untuk jaringan LAN lokal yang menampilkan status koneksi, melakukan troubleshooting otomatis, dan mencatat log aktivitas jaringan untuk lingkungan lab kampus.',
+    description: 'Alat monitoring sederhana untuk jaringan LAN lokal yang menampilkan status koneksi, melakukan troubleshooting otomatis, dan mencatat log aktivitas jaringan.',
     tech: ['Python', 'Networking', 'Bash', 'Linux', 'SQL'],
     image: 'https://i.ibb.co.com/7J3vZyWK/image.png',
     github: 'https://github.com/Yourdevelover/NetWatch',
-    // live: '#',
     featured: false,
   },
   {
@@ -165,10 +161,10 @@ export const projects = [
 
 export const experiences = [
   {
-    role: 'Mahasiswa Sistem Informasi — Semester 5',
-    company: 'Universitas Swasta, Tangerang selatan',
+    role: 'Mahasiswa Sistem Informasi S1',
+    company: 'Universitas Swasta, Tangerang Selatan',
     period: '2023 — Sekarang',
-    description: 'Menempuh studi S1 Sistem Informasi dengan fokus pada pengembangan web, manajemen database, dan analisis data. Aktif mengerjakan proyek akademik yang mengasah kemampuan teknis maupun kolaboratif.',
+    description: 'Menempuh studi S1 Sistem Informasi dengan fokus pada pengembangan web, manajemen database, dan analisis data. Aktif mengerjakan proyek teknis maupun kolaboratif.',
     highlights: ['Aktif dalam proyek pengembangan web kampus', 'Mendesain dan mengelola database PostgreSQL', 'Menguasai alur SDLC dalam proyek software engineering', 'Kolaborasi tim menggunakan Trello & Google Workspace'],
   },
   {
@@ -211,7 +207,7 @@ export const academics = {
 
 export const socialLinks = [
   { icon: Github, href: 'https://github.com/Yourdevelover', label: 'GitHub' },
-  { icon: Linkedin, href: 'linkedin.com/in/rivaldo-aldo-34b160340', label: 'LinkedIn' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/rivaldo-aldo-34b160340', label: 'LinkedIn' },
   { icon: Mail, href: 'mailto:rrivald20@gmail.com', label: 'Email' },
 ];
 

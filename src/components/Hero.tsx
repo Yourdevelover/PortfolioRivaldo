@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { ChevronDown, Github, Linkedin, Link } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, ExternalLink, Sparkles, Bot, Palette, Code2, Droplet } from 'lucide-react';
+import MagneticButton from './MagneticButton';
+import TiltCard from './TiltCard';
 
 const roles = [
-  'Full-Stack Developer',
+  'Full-Stack Developer & Software Engineer',
   'UI/UX Designer',
-  'Mobile Developer',
-  'Creative Technologist',
+  'Mobile App Developer',
+  'DevOps & System Engineer',
 ];
 
 export default function Hero() {
@@ -18,7 +20,7 @@ export default function Hero() {
     let timeout: ReturnType<typeof setTimeout>;
 
     if (!isDeleting && displayText === currentRole) {
-      timeout = setTimeout(() => setIsDeleting(true), 2200);
+      timeout = setTimeout(() => setIsDeleting(true), 1800);
     } else if (isDeleting && displayText === '') {
       setIsDeleting(false);
       setRoleIndex((prev) => (prev + 1) % roles.length);
@@ -31,7 +33,7 @@ export default function Hero() {
               : currentRole.slice(0, displayText.length + 1)
           );
         },
-        isDeleting ? 35 : 70
+        isDeleting ? 20 : 45
       );
     }
 
@@ -39,102 +41,113 @@ export default function Hero() {
   }, [roleIndex, displayText, isDeleting]);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Ambient background glow — Apple style */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] rounded-full opacity-[0.08]"
-          style={{
-            background: 'radial-gradient(circle, #2997FF 0%, transparent 70%)',
-          }}
-        />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full opacity-[0.05]"
-          style={{
-            background: 'radial-gradient(circle, #5AC8FA 0%, transparent 70%)',
-          }}
-        />
+    <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 sm:py-32">
+      {/* Liquid Water Background Glows */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-sky-500/10 blur-[100px]" />
+        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-blue-600/10 blur-[90px]" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 text-center">
-        {/* Name */}
-        <div className="animate-fade-in-up opacity-0">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-bold text-white tracking-apple-tight">
-            Rivaldo
+      {/* Main Content Container */}
+      <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 text-center flex flex-col items-center">
+        
+        {/* Status Liquid Water Badge */}
+        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-900/80 backdrop-blur-xl border border-sky-500/30 shadow-lg mb-8">
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+          </span>
+          <span className="text-xs font-bold tracking-wider text-slate-200 uppercase flex items-center gap-1.5">
+            <Droplet size={13} className="text-sky-400" />
+            Full‑stack • Mobile • UI/UX
+          </span>
+        </div>
+
+        {/* Headline */}
+        <div className="space-y-3">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black text-white tracking-tight leading-none">
+            Rivaldo<span className="text-sky-400">.</span>
           </h1>
+          
+          {/* Dynamic Fast Typing Role */}
+          <div className="h-12 sm:h-14 flex items-center justify-center">
+            <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-sky-400 tracking-tight flex items-center gap-1.5">
+              {displayText}
+              <span className="inline-block w-1 h-7 sm:h-8 bg-sky-400 animate-pulse rounded-full" />
+            </p>
+          </div>
         </div>
 
-        {/* Typing role */}
-        <div className="animate-fade-in-up opacity-0 animation-delay-200 h-10 sm:h-12 md:h-14 flex items-center justify-center mt-3 mb-8">
-          <p className="text-xl sm:text-2xl md:text-3xl text-white/40 font-light tracking-tight">
-            {displayText}
-            <span className="inline-block w-[2px] h-6 sm:h-7 md:h-8 bg-apple-blue ml-1 animate-pulse" />
+        {/* Bio Subheadline */}
+<p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mt-6 font-medium">
+            Full-Stack Developer dan UI/UX Designer dengan fokus pada pengembangan web dan aplikasi mobile. terbiasa menggunakan Next.js, Laravel, dan Flutter, serta mengelola PostgreSQL dan MySQL. Terbiasa menangani alur kerja DevOps, mulai dari Git, Docker, Nginx, hingga Supabase dan Vercel, untuk menciptakan produk yang efisien dan berdampak.
           </p>
-        </div>
 
-        {/* Description */}
-        <div className="animate-fade-in-up opacity-0 animation-delay-400">
-          <p className="text-white/50 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Berdedikasi dalam pengembangan Full-Stack Web, Mobile Application,
-            dan UI/UX Design. Membangun solusi digital dengan Next.js, Laravel,
-            Flutter, serta infrastruktur cloud modern.
-          </p>
-        </div>
-
-        {/* CTAs */}
-        <div className="animate-fade-in-up opacity-0 animation-delay-600 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mt-10">
-          <a
-            href="#projects"
-            className="group px-7 py-3 bg-apple-blue text-white font-medium rounded-full hover:bg-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-apple-blue/20 flex items-center gap-2 text-sm apple-focus"
-          >
-            Lihat Proyek
+        {/* Action Buttons */}
+        <div className="flex flex-wrap items-center justify-center gap-3.5 mt-10 w-full max-w-2xl">
+          <MagneticButton href="#projects" className="liquid-btn text-sm font-bold group">
+            <Sparkles size={16} className="text-white group-hover:rotate-12 transition-transform" />
+            Lihat Proyek Pilihan
             <ChevronDown size={16} className="group-hover:translate-y-0.5 transition-transform" />
-          </a>
-          <a
+          </MagneticButton>
+
+          <MagneticButton
             href="https://port-folio-design-lake.vercel.app/"
-            className="px-7 py-3 text-white/70 font-medium rounded-full hover:text-white transition-all duration-300 flex items-center gap-2 text-sm apple-focus"
-            style={{
-              background: 'rgba(255, 255, 255, 0.06)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-            }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="apple-pill text-xs sm:text-sm font-semibold"
           >
-            <Link size={14} />
-            Lihat Visual
-          </a>
-          <a
+            <Palette size={15} className="text-sky-400" />
+            Portofolio Desain
+            <ExternalLink size={13} className="opacity-60" />
+          </MagneticButton>
+
+          <MagneticButton
             href="https://risa-ai-asisten.vercel.app/"
-            className="px-7 py-3 text-white/70 font-medium rounded-full hover:text-white transition-all duration-300 flex items-center gap-2 text-sm apple-focus"
-            style={{
-              background: 'rgba(255, 255, 255, 0.06)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-            }}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="apple-pill text-xs sm:text-sm font-semibold"
           >
-            <Link size={14} />
-            Tanya AI
-          </a>
+            <Bot size={15} className="text-sky-400" />
+            Risa AI Asisten
+            <ExternalLink size={13} className="opacity-60" />
+          </MagneticButton>
         </div>
 
-        {/* Social icons */}
-        <div className="animate-fade-in opacity-0 animation-delay-1000 mt-10 flex items-center justify-center gap-4">
+        {/* Highlights Grid */}
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-3xl">
+          {[
+            { title: 'Full-Stack Web', desc: 'Next.js & Laravel', icon: Code2 },
+            { title: 'Mobile Apps', desc: 'Flutter Cross-Platform', icon: Sparkles },
+            { title: 'UI/UX Design', desc: 'Figma & Design Systems', icon: Palette },
+          ].map((item) => (
+            <TiltCard key={item.title} className="p-4 text-left flex items-center gap-3.5">
+              <div className="p-2.5 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 shrink-0">
+                <item.icon size={19} />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-white mb-0.5">{item.title}</h4>
+                <p className="text-xs text-slate-400">{item.desc}</p>
+              </div>
+            </TiltCard>
+          ))}
+        </div>
+
+        {/* Social Links */}
+        <div className="mt-10 flex items-center justify-center gap-3.5">
           {[
             { Icon: Github, href: 'https://github.com/Yourdevelover', label: 'GitHub' },
             { Icon: Linkedin, href: 'https://www.linkedin.com/in/rivaldo-aldo-34b160340', label: 'LinkedIn' },
           ].map(({ Icon, href, label }) => (
-            <a
+            <MagneticButton
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={label}
-              className="p-2.5 rounded-full text-white/30 hover:text-white/80 transition-all duration-300 apple-focus"
-              style={{
-                background: 'rgba(255, 255, 255, 0.04)',
-                border: '1px solid rgba(255, 255, 255, 0.06)',
-              }}
+              className="p-3 rounded-full text-slate-300 hover:text-white apple-glass-hover"
             >
-              <Icon size={18} />
-            </a>
+              <Icon size={19} />
+            </MagneticButton>
           ))}
         </div>
       </div>

@@ -1,14 +1,16 @@
 import { useInView } from '../hooks/useInView';
 import { skills, services } from '../data/portfolio';
+import { Cpu, Layers } from 'lucide-react';
+import TiltCard from './TiltCard';
 
 function SkillBar({ name, level, delay }: { name: string; level: number; delay: number }) {
-  const { ref, isInView } = useInView(0.3);
+  const { ref, isInView } = useInView(0.2);
 
   return (
-    <div ref={ref} className="space-y-1.5">
+    <div ref={ref} className="space-y-2">
       <div className="flex items-center justify-between">
-        <span className="text-sm text-white/70 font-medium">{name}</span>
-        <span className={`text-xs font-mono text-white/30 transition-opacity duration-500 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
+        <span className="text-sm text-slate-200 font-semibold">{name}</span>
+        <span className={`text-xs font-mono font-bold text-sky-400 transition-opacity duration-300 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
           {level}%
         </span>
       </div>
@@ -31,74 +33,88 @@ export default function Skills() {
 
   return (
     <section id="skills" className="section-padding relative">
-      {/* Divider */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-white/[0.06]" />
+      {/* Divider Line */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-slate-800" />
 
       <div className="relative max-w-5xl mx-auto">
         {/* Header */}
-        <div ref={headerRef} className={`text-center transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <p className="section-eyebrow mb-4">Keahlian & Kompetensi</p>
+        <div ref={headerRef} className={`text-center transition-all duration-500 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <div className="section-eyebrow mb-4 justify-center">
+            <Cpu size={14} className="text-sky-400" />
+            <span>Stack & Skill Set</span>
+          </div>
           <h2 className="section-headline">
             Kemampuan yang terus{' '}
-            <span className="apple-gradient-text">berkembang.</span>
+            <span className="text-sky-400">berkembang.</span>
           </h2>
           <p className="section-subheadline mt-4 max-w-xl mx-auto">
-            Teknologi yang saya kuasai dan terus pelajari setiap hari.
+            Teknologi modern dan kompetensi teknik yang saya kuasai secara mendalam.
           </p>
         </div>
 
-        {/* Skill categories grid */}
-        <div className="mt-14 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        {/* Skill Categories Grid */}
+        <div className="mt-14 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {skills.map((category, catIdx) => (
             <div
               key={category.category}
-              className={`apple-glass p-5 sm:p-6 transition-all duration-700 ${
+              className={`transition-all duration-500 ${
                 headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
-              style={{ transitionDelay: `${(catIdx + 1) * 100}ms` }}
+              style={{ transitionDelay: `${(catIdx + 1) * 80}ms` }}
             >
-              <h3 className="text-sm font-semibold text-white/90 mb-5 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-apple-blue" />
-                {category.category}
-              </h3>
-              <div className="space-y-3.5">
-                {category.items.map((skill, skillIdx) => (
-                  <SkillBar
-                    key={skill.name}
-                    name={skill.name}
-                    level={skill.level}
-                    delay={skillIdx * 60}
-                  />
-                ))}
-              </div>
+              <TiltCard className="p-6 h-full flex flex-col justify-between">
+                <div>
+                  <h3 className="text-base font-bold text-white mb-6 flex items-center gap-2.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-sky-400" />
+                    {category.category}
+                  </h3>
+                  <div className="space-y-4">
+                    {category.items.map((skill, skillIdx) => (
+                      <SkillBar
+                        key={skill.name}
+                        name={skill.name}
+                        level={skill.level}
+                        delay={skillIdx * 50}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </TiltCard>
             </div>
           ))}
         </div>
 
-        {/* Services */}
-        <div ref={servicesRef} className="mt-24 sm:mt-28">
-          <div className={`text-center transition-all duration-700 ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-            <p className="section-eyebrow mb-4">Layanan</p>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+        {/* Services & Contributions */}
+        <div ref={servicesRef} className="mt-28 sm:mt-36">
+          <div className={`text-center transition-all duration-500 ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <div className="section-eyebrow mb-4 justify-center">
+              <Layers size={14} className="text-sky-400" />
+              <span>Layanan & Nilai Tambah</span>
+            </div>
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
               Apa yang bisa saya{' '}
-              <span className="apple-gradient-text">kontribusikan.</span>
+              <span className="text-sky-400">kontribusikan.</span>
             </h3>
           </div>
 
-          <div className="mt-12 sm:mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map(({ icon: Icon, title, description }, i) => (
               <div
                 key={title}
-                className={`apple-glass-hover p-5 sm:p-6 group transition-all duration-700 ${
+                className={`transition-all duration-500 ${
                   servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="p-2.5 rounded-apple-sm bg-apple-blue/10 text-apple-blue w-fit mb-4 group-hover:bg-apple-blue/15 transition-colors duration-300">
-                  <Icon size={20} />
-                </div>
-                <h4 className="text-base font-semibold text-white/90 mb-2">{title}</h4>
-                <p className="text-sm text-white/40 leading-relaxed">{description}</p>
+                <TiltCard className="p-7 h-full flex flex-col justify-between group">
+                  <div>
+                    <div className="p-3.5 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 w-fit mb-5 group-hover:scale-110 transition-all duration-200">
+                      <Icon size={24} />
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-2.5 group-hover:text-sky-400 transition-colors">{title}</h4>
+                    <p className="text-sm text-slate-300 leading-relaxed font-normal">{description}</p>
+                  </div>
+                </TiltCard>
               </div>
             ))}
           </div>

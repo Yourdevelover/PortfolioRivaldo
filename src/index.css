@@ -6,40 +6,46 @@
   * {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
   }
 
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    background-color: #020617;
+    color-scheme: dark;
   }
 
   body {
-    @apply bg-black text-white/90 font-sans;
+    @apply text-slate-100 font-sans overflow-x-hidden;
+    background: #020617;
     font-feature-settings: 'kern' 1, 'liga' 1;
+    will-change: scroll-position;
   }
 
   ::selection {
-    @apply bg-blue-500/30 text-white;
+    background: rgba(14, 165, 233, 0.35);
+    color: #ffffff;
   }
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-transparent;
+    background: #020617;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-white/10 rounded-full;
+    background: rgba(56, 189, 248, 0.3);
+    border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-white/20;
+    background: #0ea5e9;
   }
 
-  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration: 0.01ms !important;
@@ -50,135 +56,177 @@
 }
 
 @layer components {
-  /* Apple-style section spacing */
+  /* Section Layout */
   .section-padding {
-    @apply py-20 sm:py-24 md:py-32 lg:py-40 px-5 sm:px-8 md:px-12 lg:px-20;
+    @apply py-24 sm:py-28 md:py-36 lg:py-40 px-5 sm:px-8 md:px-12 lg:px-24;
   }
 
-  /* Apple frosted glass — refined for dark background */
+  /* Professional Deep Ocean Liquid Glass Card */
   .apple-glass {
-    background: rgba(28, 28, 30, 0.72);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
+    position: relative;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(32px) saturate(170%);
+    -webkit-backdrop-filter: blur(32px) saturate(170%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.7),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    will-change: transform;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   .apple-glass-hover {
-    background: rgba(28, 28, 30, 0.72);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(32px) saturate(170%);
+    -webkit-backdrop-filter: blur(32px) saturate(170%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.7),
+      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    will-change: transform;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   }
 
   .apple-glass-hover:hover {
-    background: rgba(44, 44, 46, 0.8);
-    border-color: rgba(255, 255, 255, 0.14);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+    background: rgba(30, 41, 59, 0.85);
+    border-color: rgba(56, 189, 248, 0.35);
+    box-shadow: 
+      0 30px 60px -15px rgba(2, 132, 199, 0.25),
+      0 0 25px rgba(56, 189, 248, 0.12),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px);
   }
 
-  /* Apple-style navbar glass */
-  .nav-glass {
-    background: rgba(0, 0, 0, 0.72);
+  /* Luxury Liquid Water Floating Navbar Island */
+  .liquid-water-navbar {
+    position: relative;
+    background: rgba(15, 23, 42, 0.85);
     backdrop-filter: blur(40px) saturate(180%);
     -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.8),
+      0 0 20px rgba(14, 165, 233, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    border-radius: 9999px;
   }
 
-  /* Section header typography — Apple style */
+  /* Subtle Natural Mouse Specular Sheen */
+  .liquid-spotlight {
+    position: relative;
+  }
+
+  .liquid-spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.2),
+      rgba(56, 189, 248, 0.08) 35%,
+      transparent 65%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .liquid-spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* Professional Typography */
   .section-eyebrow {
-    @apply text-blue-400 text-sm sm:text-base font-semibold tracking-wide;
+    @apply text-sky-400 text-xs sm:text-sm font-bold tracking-widest uppercase inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 backdrop-blur-md;
   }
 
   .section-headline {
-    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white;
     line-height: 1.08;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.025em;
   }
 
   .section-subheadline {
-    @apply text-lg sm:text-xl md:text-2xl text-white/50 font-medium;
-    line-height: 1.35;
-    letter-spacing: -0.01em;
+    @apply text-base sm:text-lg md:text-xl text-slate-300 font-medium;
+    line-height: 1.45;
   }
 
-  /* Apple blue gradient text */
+  /* Professional Solid Water Blue Text Accent */
   .apple-gradient-text {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, #2997FF 0%, #5AC8FA 50%, #30D158 100%);
+    @apply text-sky-400 font-bold;
   }
 
-  /* Project card image overlay */
-  .project-card-overlay {
-    @apply absolute inset-0;
-    background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.85) 100%);
+  /* Deep Ocean Liquid Button */
+  .liquid-btn {
+    position: relative;
+    @apply inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-sm font-bold rounded-full text-white bg-sky-500 hover:bg-sky-400 transition-all duration-200 cursor-pointer select-none shadow-lg shadow-sky-500/25 active:scale-95 border border-sky-300/30;
   }
 
-  /* Apple-style pill button */
+  .liquid-btn:hover {
+    box-shadow: 0 12px 30px rgba(14, 165, 233, 0.45);
+    transform: translateY(-2px);
+  }
+
+  /* Pill Button */
   .apple-pill {
-    @apply inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full transition-all duration-300;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    @apply inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 backdrop-blur-md select-none bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700/70 shadow-sm;
   }
 
   .apple-pill:hover {
-    background: rgba(255, 255, 255, 0.14);
-    border-color: rgba(255, 255, 255, 0.2);
+    @apply text-white border-sky-400/50 shadow-sky-500/15;
+    transform: translateY(-2px);
   }
 
-  /* Apple-style skill progress */
+  /* Skill Progress Track */
   .skill-track {
-    @apply h-1 rounded-full overflow-hidden;
-    background: rgba(255, 255, 255, 0.06);
+    @apply h-2 rounded-full overflow-hidden relative bg-slate-900/90 border border-slate-800;
   }
 
   .skill-fill {
-    @apply h-full rounded-full;
-    background: linear-gradient(90deg, #2997FF, #5AC8FA);
-    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    @apply h-full rounded-full bg-sky-400 relative;
+    transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Tag / chip */
+  /* Tag Badge */
   .apple-tag {
-    @apply px-3 py-1 text-xs font-medium rounded-full;
-    background: rgba(255, 255, 255, 0.06);
-    color: rgba(255, 255, 255, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    @apply px-3.5 py-1 text-xs font-semibold rounded-full backdrop-blur-md bg-slate-900/80 text-slate-300 border border-slate-800 transition-all duration-200;
   }
 
-  /* Focus styles for accessibility */
+  .apple-tag:hover {
+    @apply bg-sky-500/15 border-sky-400/40 text-white;
+  }
+
+  /* Accessibility focus */
   .apple-focus:focus-visible {
-    outline: 2px solid #2997FF;
+    outline: 2px solid #38bdf8;
     outline-offset: 2px;
     border-radius: 8px;
   }
 }
 
-@layer utilities {
-  .animation-delay-200 {
-    animation-delay: 200ms;
-  }
-  .animation-delay-400 {
-    animation-delay: 400ms;
-  }
-  .animation-delay-600 {
-    animation-delay: 600ms;
-  }
-  .animation-delay-800 {
-    animation-delay: 800ms;
-  }
-  .animation-delay-1000 {
-    animation-delay: 1000ms;
-  }
+/* Water Ripple Animation */
+@keyframes ripple-expand {
+  0% { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(2.8); opacity: 0; }
+}
 
-  /* Safe area insets for iPhone notch / Dynamic Island */
-  .safe-top {
-    padding-top: env(safe-area-inset-top, 0px);
-  }
-  .safe-bottom {
-    padding-bottom: env(safe-area-inset-bottom, 0px);
-  }
+.animate-ripple {
+  animation: ripple-expand 0.4s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@layer utilities {
+  .animation-delay-200 { animation-delay: 150ms; }
+  .animation-delay-400 { animation-delay: 300ms; }
+  .animation-delay-600 { animation-delay: 450ms; }
+
+  .safe-top { padding-top: env(safe-area-inset-top, 0px); }
+  .safe-bottom { padding-bottom: env(safe-area-inset-bottom, 0px); }
 }
