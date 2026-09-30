@@ -19,7 +19,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section-padding relative">
       {/* Liquid Glass Divider Line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
       <div className="max-w-5xl mx-auto" ref={ref}>
         {/* Header */}
@@ -30,7 +30,7 @@ export default function Contact() {
           </div>
           <h2 className="section-headline">
             Mari{' '}
-            <span className="apple-gradient-text">berkolaborasi.</span>
+            <span className="apple-gradient-text">berkembang lebih lanjut dengan saya.</span>
           </h2>
           <p className="section-subheadline mt-4 max-w-xl mx-auto">
             Terbuka untuk posisi magang, proyek freelance, dan riset akademik.
@@ -45,7 +45,7 @@ export default function Contact() {
             {/* Contact Details */}
             <TiltCard className="p-6 space-y-5">
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10 text-apple-cyan shrink-0">
+                <div className="p-3 rounded-2xl bg-white/[0.08] border border-white/12 text-apple-cyan shrink-0">
                   <Mail size={20} />
                 </div>
                 <div>
@@ -57,7 +57,7 @@ export default function Contact() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="p-3 rounded-2xl bg-white/[0.06] border border-white/10 text-apple-green shrink-0">
+                <div className="p-3 rounded-2xl bg-white/[0.08] border border-white/12 text-apple-green shrink-0">
                   <MapPin size={20} />
                 </div>
                 <div>
@@ -96,7 +96,7 @@ export default function Contact() {
                 {['Magang Web/App', 'Freelance Project', 'UI/UX Design', 'Open Source'].map((item) => (
                   <span
                     key={item}
-                    className="px-3.5 py-1.5 text-xs font-bold rounded-full bg-apple-blue/20 text-apple-cyan border border-apple-blue/35 shadow-[0_0_10px_rgba(0,122,255,0.2)]"
+                    className="px-3.5 py-1.5 text-xs font-bold rounded-full bg-apple-blue/15 text-apple-cyan border border-apple-blue/25 shadow-[0_0_10px_rgba(0,122,255,0.15)]"
                   >
                     {item}
                   </span>

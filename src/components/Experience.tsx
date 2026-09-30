@@ -11,7 +11,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section-padding relative">
       {/* Liquid Glass Divider Line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
       <div className="relative max-w-5xl mx-auto" ref={ref}>
         {/* Header */}

@@ -16,7 +16,7 @@ export default function About() {
   return (
     <section id="about" className="section-padding relative" ref={ref}>
       {/* Divider Line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-slate-800" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
       <div className="max-w-5xl mx-auto">
         {/* Header */}
@@ -27,7 +27,7 @@ export default function About() {
           </div>
           <h2 className="section-headline">
             Teknologi bertemu{' '}
-            <span className="text-sky-400">kreativitas liquid.</span>
+            <span className="text-sky-400">kreativitas.</span>
           </h2>
           <p className="section-subheadline mt-4 max-w-2xl mx-auto">
             Presisi dalam arsitektur sistem, keindahan dalam antarmuka visual modern.

@@ -99,6 +99,16 @@ export const services = [
 
 export const projects = [
   {
+    title: 'Monitoring Document',
+    subtitle: 'PT Colmitra Persada Indonesia',
+    description: 'Web untuk monitoring document karyawan di PT Colmitra Persada Indonesia berbasis Next.js, Nginx, dan PostgreSQL.',
+    tech: ['Next.js', 'Nginx', 'PostgreSQL', 'TypeScript', 'Tailwind CSS'],
+    image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    github: 'https://github.com/Yourdevelover/monitoring-document',
+    live: '',
+    featured: true,
+  },
+  {
     title: 'AI-Assistant',
     subtitle: 'Risa-Asisten-AI-Rivaldo',
     description: 'Risa adalah asisten AI pribadi Rivaldo yang siap membantu menjawab pertanyaan.',

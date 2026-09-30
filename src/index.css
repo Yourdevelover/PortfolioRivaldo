@@ -13,13 +13,20 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    background-color: #020617;
+    background: linear-gradient(165deg, #0c1e35 0%, #12355b 20%, #1e5a78 40%, #2a7a9b 60%, #1e5a78 80%, #0c1e35 100%);
+    background-size: 400% 400%;
+    animation: ocean-depth 25s ease infinite;
     color-scheme: dark;
+  }
+
+  @keyframes ocean-depth {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
   body {
     @apply text-slate-100 font-sans overflow-x-hidden;
-    background: #020617;
     font-feature-settings: 'kern' 1, 'liga' 1;
     will-change: scroll-position;
   }
@@ -61,56 +68,56 @@
     @apply py-24 sm:py-28 md:py-36 lg:py-40 px-5 sm:px-8 md:px-12 lg:px-24;
   }
 
-  /* Professional Deep Ocean Liquid Glass Card */
+  /* Soft Transparent Glass Card */
   .apple-glass {
     position: relative;
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(32px) saturate(170%);
-    -webkit-backdrop-filter: blur(32px) saturate(170%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 
-      0 25px 50px -12px rgba(0, 0, 0, 0.7),
-      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      0 25px 50px -12px rgba(0, 0, 0, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     will-change: transform;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
   }
 
   .apple-glass-hover {
     position: relative;
-    background: rgba(15, 23, 42, 0.65);
-    backdrop-filter: blur(32px) saturate(170%);
-    -webkit-backdrop-filter: blur(32px) saturate(170%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 
-      0 25px 50px -12px rgba(0, 0, 0, 0.7),
-      inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      0 25px 50px -12px rgba(0, 0, 0, 0.3),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     will-change: transform;
-    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
   }
 
   .apple-glass-hover:hover {
-    background: rgba(30, 41, 59, 0.85);
-    border-color: rgba(56, 189, 248, 0.35);
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(56, 189, 248, 0.25);
     box-shadow: 
-      0 30px 60px -15px rgba(2, 132, 199, 0.25),
-      0 0 25px rgba(56, 189, 248, 0.12),
-      inset 0 1px 1.5px rgba(255, 255, 255, 0.3);
-    transform: translateY(-4px);
+      0 30px 60px -15px rgba(0, 0, 0, 0.2),
+      0 0 25px rgba(56, 189, 248, 0.1),
+      inset 0 1px 1.5px rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
   }
 
-  /* Luxury Liquid Water Floating Navbar Island */
+  /* Soft Transparent Navbar */
   .liquid-water-navbar {
     position: relative;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(24px) saturate(140%);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.8),
-      0 0 20px rgba(14, 165, 233, 0.15),
-      inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      0 20px 40px rgba(0, 0, 0, 0.25),
+      0 0 20px rgba(14, 165, 233, 0.08),
+      inset 0 1px 1px rgba(255, 255, 255, 0.12);
     border-radius: 9999px;
   }
 
@@ -127,8 +134,8 @@
     padding: 1px;
     background: radial-gradient(
       380px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-      rgba(255, 255, 255, 0.2),
-      rgba(56, 189, 248, 0.08) 35%,
+      rgba(255, 255, 255, 0.12),
+      rgba(56, 189, 248, 0.04) 35%,
       transparent 65%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -136,7 +143,7 @@
     mask-composite: exclude;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.25s ease;
+    transition: opacity 0.4s ease;
   }
 
   .liquid-spotlight:hover::before {
@@ -164,44 +171,82 @@
     @apply text-sky-400 font-bold;
   }
 
-  /* Deep Ocean Liquid Button */
+  /* Soft Glass Button */
   .liquid-btn {
     position: relative;
-    @apply inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-sm font-bold rounded-full text-white bg-sky-500 hover:bg-sky-400 transition-all duration-200 cursor-pointer select-none shadow-lg shadow-sky-500/25 active:scale-95 border border-sky-300/30;
+    @apply inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-sm font-bold rounded-full text-white transition-all duration-300 cursor-pointer select-none border;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 
   .liquid-btn:hover {
-    box-shadow: 0 12px 30px rgba(14, 165, 233, 0.45);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(56, 189, 248, 0.3);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
     transform: translateY(-2px);
   }
 
-  /* Pill Button */
+  /* Soft Glass Pill Button */
   .apple-pill {
-    @apply inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 backdrop-blur-md select-none bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-700/70 shadow-sm;
+    @apply inline-flex items-center gap-2 px-5 py-2.5 text-xs sm:text-sm font-semibold rounded-full transition-all duration-200 select-none border;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    color: #cbd5e1;
+  }
+
+  /* Hero name gradient animation */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .hero-name {
+    background: linear-gradient(90deg, #06b6d1, #0ea5e9, #38bdf8, #0d9488);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientShift 4s ease infinite;
   }
 
   .apple-pill:hover {
-    @apply text-white border-sky-400/50 shadow-sky-500/15;
+    @apply text-white border-sky-400/40;
+    background: rgba(255, 255, 255, 0.15);
     transform: translateY(-2px);
   }
 
-  /* Skill Progress Track */
+  /* Soft Glass Skill Progress Track */
   .skill-track {
-    @apply h-2 rounded-full overflow-hidden relative bg-slate-900/90 border border-slate-800;
+    @apply h-2 rounded-full overflow-hidden relative border;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
   }
 
   .skill-fill {
-    @apply h-full rounded-full bg-sky-400 relative;
+    @apply h-full rounded-full relative;
+    background: linear-gradient(90deg, #0f766e 0%, #0369a1 100%);
     transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  /* Tag Badge */
+  /* Soft Glass Tag Badge */
   .apple-tag {
-    @apply px-3.5 py-1 text-xs font-semibold rounded-full backdrop-blur-md bg-slate-900/80 text-slate-300 border border-slate-800 transition-all duration-200;
+    @apply px-3.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 border;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #94a3b8;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
   }
 
   .apple-tag:hover {
-    @apply bg-sky-500/15 border-sky-400/40 text-white;
+    @apply text-white;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(56, 189, 248, 0.3);
   }
 
   /* Accessibility focus */

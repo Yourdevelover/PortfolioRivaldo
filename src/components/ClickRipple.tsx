@@ -10,17 +10,22 @@ export default function ClickRipple() {
   const [ripples, setRipples] = useState<SingleRipple[]>([]);
 
   useEffect(() => {
+    let lastClick = 0;
+
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
 
+      const now = Date.now();
+      if (now - lastClick < 50) return;
+      lastClick = now;
+
       const newRipple = {
         x: e.clientX,
         y: e.clientY,
-        id: Date.now(),
+        id: now,
       };
 
-      // Keep only max 2 active ripples to prevent clutter
       setRipples((prev) => [...prev.slice(-2), newRipple]);
     };
 

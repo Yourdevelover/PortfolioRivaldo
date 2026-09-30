@@ -44,21 +44,21 @@ export default function Hero() {
     <section id="hero" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-24 sm:py-32">
       {/* Liquid Water Background Glows */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-sky-500/10 blur-[100px]" />
-        <div className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-blue-600/10 blur-[90px]" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[500px] h-[500px] rounded-full bg-sky-400/4 blur-[80px]" />
+        <div className="absolute bottom-1/3 right-1/4 w-[320px] h-[320px] rounded-full bg-blue-600/4 blur-[70px]" />
       </div>
 
       {/* Main Content Container */}
       <div className="relative z-10 max-w-5xl mx-auto px-5 sm:px-8 text-center flex flex-col items-center">
         
         {/* Status Liquid Water Badge */}
-        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-slate-900/80 backdrop-blur-xl border border-sky-500/30 shadow-lg mb-8">
+        <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/8 backdrop-blur-xl border border-white/15 shadow-lg mb-8">
           <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400/50 opacity-50"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400/70"></span>
           </span>
           <span className="text-xs font-bold tracking-wider text-slate-200 uppercase flex items-center gap-1.5">
-            <Droplet size={13} className="text-sky-400" />
+            <Droplet size={13} className="text-sky-400/70" />
             Full‑stack • Mobile • UI/UX
           </span>
         </div>
@@ -66,20 +66,20 @@ export default function Hero() {
         {/* Headline */}
         <div className="space-y-3">
           <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-black text-white tracking-tight leading-none">
-            Rivaldo<span className="text-sky-400">.</span>
+            <span className="hero-name">Rivaldo</span><span className="text-sky-400">.</span>
           </h1>
           
           {/* Dynamic Fast Typing Role */}
           <div className="h-12 sm:h-14 flex items-center justify-center">
             <p className="text-2xl sm:text-3xl md:text-4xl font-bold text-sky-400 tracking-tight flex items-center gap-1.5">
               {displayText}
-              <span className="inline-block w-1 h-7 sm:h-8 bg-sky-400 animate-pulse rounded-full" />
+              <span className="inline-block w-1 h-7 sm:h-8 bg-sky-400/70 animate-pulse rounded-full" />
             </p>
           </div>
         </div>
 
         {/* Bio Subheadline */}
-<p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mt-6 font-medium">
+<p className="text-slate-300/80 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mt-6 font-medium">
             Full-Stack Developer dan UI/UX Designer dengan fokus pada pengembangan web dan aplikasi mobile. terbiasa menggunakan Next.js, Laravel, dan Flutter, serta mengelola PostgreSQL dan MySQL. Terbiasa menangani alur kerja DevOps, mulai dari Git, Docker, Nginx, hingga Supabase dan Vercel, untuk menciptakan produk yang efisien dan berdampak.
           </p>
 

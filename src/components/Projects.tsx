@@ -14,7 +14,7 @@ export default function Projects() {
 
   const filteredProjects = projects.filter((p) => {
     if (selectedCategory === 'Semua') return true;
-    if (selectedCategory === 'Web Full-Stack') return p.tech.includes('Laravel 10') || p.tech.includes('React') || p.tech.includes('HTML');
+    if (selectedCategory === 'Web Full-Stack') return p.tech.includes('Laravel 10') || p.tech.includes('React') || p.tech.includes('HTML') || p.tech.includes('Next.js');
     if (selectedCategory === 'Mobile App') return p.tech.includes('Flutter') || p.subtitle.includes('Parking');
     if (selectedCategory === 'UI/UX Design') return p.tech.includes('Adobe Photoshop') || p.tech.includes('Figma');
     if (selectedCategory === 'Utility Tool') return p.tech.includes('Python') || p.tech.includes('Networking');
@@ -26,7 +26,7 @@ export default function Projects() {
   return (
     <section id="projects" className="section-padding relative">
       {/* Divider Line */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-slate-800" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
       <div className="max-w-5xl mx-auto" ref={ref}>
         {/* Header */}
@@ -136,31 +136,31 @@ function ProjectItem({
           </div>
 
           {/* Details Content */}
-          <div className={`p-7 sm:p-9 flex flex-col justify-between ${!isEven ? 'md:[direction:ltr]' : ''}`}>
+          <div className={`p-5 sm:p-6 flex flex-col justify-between ${!isEven ? 'md:[direction:ltr]' : ''}`}>
             <div>
-              <div className="flex items-center gap-2 mb-3">
-                <span className="text-sky-400 text-xs font-bold uppercase tracking-wider">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-sky-400 text-[10px] font-bold uppercase tracking-wider">
                   {project.subtitle}
                 </span>
                 {project.featured && (
-                  <span className="px-2.5 py-0.5 text-[10px] font-extrabold rounded-full bg-sky-500/15 text-sky-300 border border-sky-400/30">
+                  <span className="px-2 py-0.5 text-[8px] font-extrabold rounded-full bg-sky-500/15 text-sky-300 border border-sky-400/30">
                     Utama
                   </span>
                 )}
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black text-white mb-3.5 tracking-tight">
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-2.5 tracking-tight">
                 {project.title}
               </h3>
 
-              <p className="text-sm text-slate-300 leading-relaxed mb-6 font-normal">
+              <p className="text-xs text-slate-300 leading-relaxed mb-4 font-normal">
                 {project.description}
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2 pt-4 border-t border-slate-800">
+            <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-800">
               {project.tech.map((t) => (
-                <span key={t} className="apple-tag">
+                <span key={t} className="apple-tag text-[10px]">
                   {t}
                 </span>
               ))}

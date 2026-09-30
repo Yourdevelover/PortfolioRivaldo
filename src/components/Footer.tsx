@@ -4,9 +4,9 @@ import MagneticButton from './MagneticButton';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#020204]">
+    <footer className="relative">
       {/* Top liquid divider line */}
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
       <div className="max-w-6xl mx-auto px-6 sm:px-8 py-14 sm:py-20 safe-bottom">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-10">
@@ -19,7 +19,7 @@ export default function Footer() {
             </MagneticButton>
             
             <p className="mt-4 text-sm text-white/50 leading-relaxed max-w-xs font-normal">
-              Mahasiswa Sistem Informasi S1 yang berfokus pada Full-Stack Web, Mobile Applications, dan Liquid UI/UX Design.
+              Mahasiswa Sistem Informasi S1 yang berfokus pada Full-Stack Web, Mobile Applications, dan UI/UX Design.
             </p>
 
             <div className="mt-6 flex gap-3">
@@ -70,7 +70,7 @@ export default function Footer() {
               <li>Tangerang Selatan & Jakarta, ID</li>
               <li className="text-apple-green font-semibold flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-apple-green animate-pulse" />
-                Terbuka untuk posisi magang & freelance
+                Terbuka untuk semua
               </li>
             </ul>
           </div>
@@ -79,7 +79,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/40 font-mono">
-            &copy; {new Date().getFullYear()} Rivaldo. All rights reserved. Built with VisionOS Liquid Glass.
+            &copy; {new Date().getFullYear()} Rivaldo. All rights reserved.
           </p>
           <p className="text-xs text-white/40 flex items-center gap-1.5 font-medium">
             <span>Dibuat dengan</span>

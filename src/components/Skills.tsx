@@ -64,8 +64,8 @@ export default function Skills() {
             >
               <TiltCard className="p-6 h-full flex flex-col justify-between">
                 <div>
-                  <h3 className="text-base font-bold text-white mb-6 flex items-center gap-2.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-sky-400" />
+                  <h3 className="text-sm font-bold text-white mb-4 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-sky-400" />
                     {category.category}
                   </h3>
                   <div className="space-y-4">
@@ -106,13 +106,13 @@ export default function Skills() {
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <TiltCard className="p-7 h-full flex flex-col justify-between group">
+                <TiltCard className="p-5 h-full flex flex-col justify-between group">
                   <div>
-                    <div className="p-3.5 rounded-2xl bg-sky-500/10 border border-sky-500/20 text-sky-400 w-fit mb-5 group-hover:scale-110 transition-all duration-200">
-                      <Icon size={24} />
+                    <div className="p-3 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 w-fit mb-3 group-hover:scale-110 transition-all duration-200">
+                      <Icon size={20} />
                     </div>
-                    <h4 className="text-lg font-bold text-white mb-2.5 group-hover:text-sky-400 transition-colors">{title}</h4>
-                    <p className="text-sm text-slate-300 leading-relaxed font-normal">{description}</p>
+                    <h4 className="text-sm font-bold text-white mb-2 group-hover:text-sky-400 transition-colors">{title}</h4>
+                    <p className="text-xs text-slate-300 leading-relaxed font-normal">{description}</p>
                   </div>
                 </TiltCard>
               </div>

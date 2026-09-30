@@ -26,19 +26,23 @@ export default function LiquidWaterBackground() {
     let ripples: WaterRipple[] = [];
     let mouse = { x: width / 2, y: height / 2, lastX: width / 2, lastY: height / 2 };
 
+    let lastRipple = 0;
     const handleMouseMove = (e: MouseEvent) => {
       const dist = Math.hypot(e.clientX - mouse.lastX, e.clientY - mouse.lastY);
 
       if (dist > 35) {
-        // Gentle ripple on deliberate mouse movement
-        ripples.push({
-          x: e.clientX,
-          y: e.clientY,
-          r: 2,
-          maxR: 35 + Math.random() * 20,
-          opacity: 0.35,
-          speed: 1.2 + Math.random() * 0.8,
-        });
+        const now = performance.now();
+        if (now - lastRipple > 50) {
+          ripples.push({
+            x: e.clientX,
+            y: e.clientY,
+            r: 2,
+            maxR: 35 + Math.random() * 20,
+            opacity: 0.25,
+            speed: 1.2 + Math.random() * 0.8,
+          });
+          lastRipple = now;
+        }
 
         mouse.lastX = e.clientX;
         mouse.lastY = e.clientY;
@@ -65,9 +69,15 @@ export default function LiquidWaterBackground() {
     ];
 
     let time = 0;
+    let lastFrame = 0;
 
-    const render = () => {
-      time += 0.008;
+    const render = (now: number) => {
+      if (now - lastFrame < 16) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+      lastFrame = now;
+      time += 0.005;
       ctx.clearRect(0, 0, width, height);
 
       // 1. Calm Ambient Floating Water Orbs
@@ -86,12 +96,12 @@ export default function LiquidWaterBackground() {
       });
 
       // 2. Gentle Mouse Light Spotlight
-      const mouseGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 300);
-      mouseGrad.addColorStop(0, 'rgba(56, 189, 248, 0.07)');
+      const mouseGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 250);
+      mouseGrad.addColorStop(0, 'rgba(56, 189, 248, 0.05)');
       mouseGrad.addColorStop(1, 'rgba(0,0,0,0)');
       ctx.fillStyle = mouseGrad;
       ctx.beginPath();
-      ctx.arc(mouse.x, mouse.y, 300, 0, Math.PI * 2);
+      ctx.arc(mouse.x, mouse.y, 250, 0, Math.PI * 2);
       ctx.fill();
 
       // 3. Subtle Water Ripples
@@ -110,7 +120,7 @@ export default function LiquidWaterBackground() {
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    render(0);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);

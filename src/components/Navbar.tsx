@@ -45,16 +45,16 @@ export default function Navbar() {
       >
         {/* Brand Logo */}
         <MagneticButton href="#" className="flex items-center gap-2 text-base font-extrabold text-white tracking-tight group">
-          <div className="p-1.5 rounded-full bg-sky-500/10 text-sky-400 border border-sky-500/20 group-hover:scale-110 transition-transform">
+          <div className="p-1.5 rounded-full bg-white/10 text-sky-400 border border-white/15 group-hover:scale-110 transition-transform">
             <Droplet size={15} />
           </div>
           <span>rivaldo</span>
           <span className="text-sky-400 group-hover:scale-125 transition-transform inline-block">.</span>
-          <span className="text-[11px] font-mono font-bold text-sky-400 px-2 py-0.5 rounded-full bg-sky-500/10 border border-sky-500/20">dev</span>
+          <span className="text-[11px] font-mono font-bold text-sky-400 px-2 py-0.5 rounded-full bg-white/10 border border-white/15">dev</span>
         </MagneticButton>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/40 backdrop-blur-xl border border-slate-800">
+        <ul className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/8 backdrop-blur-xl border border-white/15">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
@@ -63,8 +63,8 @@ export default function Navbar() {
                   href={link.href}
                   className={`relative px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 block select-none ${
                     isActive
-                      ? 'text-white bg-sky-500 shadow-md shadow-sky-500/30'
-                      : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                      ? 'text-white bg-sky-400/20 shadow-md shadow-sky-500/20 border border-sky-400/30'
+                      : 'text-slate-300 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -88,7 +88,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className="md:hidden p-2 rounded-full bg-slate-900/80 border border-slate-700 text-white hover:text-sky-400 transition-all apple-focus"
+          className="md:hidden p-2 rounded-full bg-white/10 border border-white/15 text-white hover:text-sky-400 transition-all apple-focus"
           aria-label={isMobileOpen ? 'Tutup menu' : 'Buka menu'}
         >
           {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
