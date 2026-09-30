@@ -6,31 +6,41 @@ import { projects } from '../data/portfolio';
 export default function Projects() {
   const { ref, isInView } = useInView(0.05);
   const [showAll, setShowAll] = useState(false);
-  const displayedProjects = showAll ? projects : projects.slice(0, 2);
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
   return (
     <section id="projects" className="section-padding relative">
-      <div className="max-w-6xl mx-auto" ref={ref}>
-        <div className={`transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="section-label">Proyek Pilihan</p>
-          <h2 className="section-title">
-            Karya yang merepresentasikan <span className="gradient-text">kemampuan saya</span>
+      {/* Divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-white/[0.06]" />
+
+      <div className="max-w-5xl mx-auto" ref={ref}>
+        {/* Header */}
+        <div className={`text-center transition-all duration-700 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <p className="section-eyebrow mb-4">Proyek Pilihan</p>
+          <h2 className="section-headline">
+            Karya yang{' '}
+            <span className="apple-gradient-text">berbicara.</span>
           </h2>
+          <p className="section-subheadline mt-4 max-w-xl mx-auto">
+            Setiap proyek merepresentasikan pemecahan masalah nyata.
+          </p>
         </div>
 
-        <div className="mt-12 space-y-8">
-          {displayedProjects.map((project, i) => {
-            return <ProjectCard key={project.title} project={project} index={i} isVisible={isInView} />;
-          })}
+        {/* Projects grid */}
+        <div className="mt-14 sm:mt-16 space-y-5 sm:space-y-6">
+          {displayedProjects.map((project, i) => (
+            <ProjectCard key={project.title} project={project} index={i} isVisible={isInView} />
+          ))}
         </div>
 
-        {!showAll && projects.length > 2 && (
+        {/* Load more */}
+        {!showAll && projects.length > 3 && (
           <div className="mt-12 text-center">
             <button
               onClick={() => setShowAll(true)}
-              className="px-6 py-3 bg-amber-400 text-navy-900 font-semibold rounded-lg hover:bg-amber-300 transition-colors"
+              className="px-8 py-3 text-sm font-medium rounded-full bg-apple-blue text-white hover:bg-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-apple-blue/20 apple-focus"
             >
-              Lihat Selengkapnya
+              Lihat Semua Proyek
             </button>
           </div>
         )}
@@ -52,58 +62,66 @@ function ProjectCard({
 
   return (
     <div
-      className={`group glass-card-hover overflow-hidden transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      className={`group overflow-hidden transition-all duration-700 apple-glass-hover ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`}
       style={{ transitionDelay: `${(index + 1) * 150}ms` }}
     >
       <div className={`grid md:grid-cols-2 gap-0 ${!isEven ? 'md:[direction:rtl]' : ''}`}>
-        <div className="relative overflow-hidden aspect-video md:aspect-auto">
+        {/* Image */}
+        <div className="relative overflow-hidden aspect-video md:aspect-auto md:min-h-[280px]">
           <img
             src={project.image}
             alt={project.title}
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            loading="lazy"
           />
           <div className="project-card-overlay" />
-          <div className="absolute bottom-4 left-4 flex gap-3">
+
+          {/* Action buttons on image */}
+          <div className="absolute bottom-4 left-4 flex gap-2">
             <a
               href={project.github}
-              className="p-2.5 rounded-lg bg-navy-900/80 text-navy-300 hover:text-amber-400 backdrop-blur-sm transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-full backdrop-blur-md text-white/70 hover:text-white transition-colors apple-focus"
+              style={{ background: 'rgba(0, 0, 0, 0.5)' }}
               aria-label={`${project.title} GitHub`}
             >
-              <Github size={18} />
+              <Github size={16} />
             </a>
-            <a
-              href={project.live}
-              className="p-2.5 rounded-lg bg-navy-900/80 text-navy-300 hover:text-amber-400 backdrop-blur-sm transition-colors"
-              aria-label={`${project.title} Live Demo`}
-            >
-              <ExternalLink size={18} />
-            </a>
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-full backdrop-blur-md text-white/70 hover:text-white transition-colors apple-focus"
+                style={{ background: 'rgba(0, 0, 0, 0.5)' }}
+                aria-label={`${project.title} Live Demo`}
+              >
+                <ExternalLink size={16} />
+              </a>
+            )}
           </div>
         </div>
 
-        <div className={`p-6 md:p-8 flex flex-col justify-center ${!isEven ? 'md:[direction:ltr]' : ''}`}>
-          <p className="text-amber-400 font-mono text-xs tracking-wider uppercase mb-2">
+        {/* Content */}
+        <div className={`p-6 sm:p-8 flex flex-col justify-center ${!isEven ? 'md:[direction:ltr]' : ''}`}>
+          <p className="text-apple-blue text-xs font-semibold tracking-wide mb-2">
             {project.subtitle}
           </p>
-          <h3 className="text-xl md:text-2xl font-bold text-navy-100 mb-3 group-hover:text-amber-400/90 transition-colors">
+          <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-apple-blue/90 transition-colors tracking-tight">
             {project.title}
           </h3>
-          <p className="text-sm text-navy-400 leading-relaxed mb-5">
+          <p className="text-sm text-white/40 leading-relaxed mb-5">
             {project.description}
           </p>
           <div className="flex flex-wrap gap-2">
-            {project.tech.map((t) => {
-              return (
-                <span
-                  key={t}
-                  className="px-2.5 py-1 text-xs font-mono rounded bg-navy-800/60 text-navy-300 border border-navy-700/40"
-                >
-                  {t}
-                </span>
-              );
-            })}
+            {project.tech.map((t) => (
+              <span key={t} className="apple-tag">
+                {t}
+              </span>
+            ))}
           </div>
         </div>
       </div>

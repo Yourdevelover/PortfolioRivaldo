@@ -25,71 +25,76 @@ import {
   FolderGit2,
   Globe,
   Server,
+  Smartphone,
 } from 'lucide-react';
 
 export const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Academics', href: '#experience' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Tentang', href: '#about' },
+  { label: 'Keahlian', href: '#skills' },
+  { label: 'Proyek', href: '#projects' },
+  { label: 'Perjalanan', href: '#experience' },
+  { label: 'Kontak', href: '#contact' },
 ];
 
+export const personalBio = {
+  headline: "Full-Stack Web, Mobile & UI/UX Developer",
+  summary: "Berdedikasi dengan keahlian mendalam dalam pengembangan Full-Stack Web, Mobile Application, dan UI/UX Design.",
+  fullBio: `Full-Stack Web, Mobile Application, dan UI/UX Design. Memiliki rekam jejak dalam membangun solusi digital menggunakan framework modern seperti Next.js, Laravel, dan Flutter, serta pengelolaan basis data PostgreSQL dan MySQL. Berpengalaman dalam siklus DevOps mulai dari manajemen repositori Git, kontainerisasi Docker, konfigurasi server Nginx, hingga pemanfaatan cloud platform seperti Supabase dan Vercel.`,
+  shortDesc: "Membangun solusi web full-stack, aplikasi mobile, dan antarmuka mutakhir dengan Next.js, Flutter, Laravel, serta infrastruktur cloud modern.",
+};
+
 export const skills = [
-  { category: 'Pemrograman & Pengembangan Web', items: [
-    { name: 'React.js', level: 82 },
-    { name: 'JavaScript (ES6+)', level: 85 },
-    { name: 'HTML5 & CSS3', level: 90 },
-    { name: 'TypeScript', level: 72 },
-    { name: 'Tailwind CSS', level: 80 },
-    { name: 'PHP', level: 75 },
-    { name: 'Python', level: 70 },
-    { name: 'Java', level: 68 },
+  { category: 'Full-Stack & Mobile Development', items: [
+    { name: 'Next.js / React', level: 90 },
+    { name: 'Flutter (Dart)', level: 85 },
+    { name: 'Laravel (PHP)', level: 88 },
+    { name: 'TypeScript / Node.js', level: 85 },
+    { name: 'Tailwind CSS', level: 92 },
   ]},
-  { category: 'Database & Analisis Data', items: [
-    { name: 'SQL / PostgreSQL', level: 80 },
-    { name: 'Database Design', level: 78 },
-    { name: 'DBeaver', level: 82 },
-    { name: 'Data Analysis & Reporting', level: 75 },
-    { name: 'Modular Query Scripting', level: 73 },
+  { category: 'Database & Cloud Backend', items: [
+    { name: 'PostgreSQL', level: 88 },
+    { name: 'MySQL', level: 85 },
+    { name: 'Supabase', level: 84 },
+    { name: 'Database Architecture', level: 82 },
+    { name: 'Prisma / Eloquent ORM', level: 80 },
   ]},
-  { category: 'Desain & Kreativitas', items: [
-    { name: 'UI/UX Design', level: 78 },
-    { name: 'Adobe Photoshop', level: 85 },
-    { name: 'Adobe Illustrator', level: 72 },
-    { name: 'Video Editing', level: 70 },
-    { name: 'Branding & Copywriting', level: 76 },
+  { category: 'DevOps & Deployment', items: [
+    { name: 'Git & GitHub Workflows', level: 88 },
+    { name: 'Docker Containerization', level: 78 },
+    { name: 'Nginx Web Server', level: 75 },
+    { name: 'Vercel / Cloud Platforms', level: 86 },
+    { name: 'CI/CD Pipelines', level: 74 },
   ]},
-  { category: 'Sistem & Infrastruktur', items: [
-    { name: 'Jaringan Komputer (LAN)', level: 70 },
-    { name: 'Sistem Operasi', level: 72 },
-    { name: 'Cloud Computing (Dasar)', level: 65 },
-    { name: 'Troubleshooting Hardware', level: 78 },
-    { name: 'Keamanan Jaringan Dasar', level: 62 },
+  { category: 'UI/UX & Product Design', items: [
+    { name: 'Figma UI/UX Prototyping', level: 88 },
+    { name: 'Design Systems & Apple HIG', level: 84 },
+    { name: 'Adobe Photoshop', level: 82 },
+    { name: 'Adobe Illustrator', level: 75 },
+    { name: 'Micro-interactions & Motion', level: 80 },
   ]},
-  { category: 'Manajemen & Bisnis Digital', items: [
-    { name: 'Software Engineering (SDLC)', level: 75 },
-    { name: 'ERP Systems', level: 65 },
-    { name: 'E-Business & E-Commerce', level: 72 },
-    { name: 'Digital Marketing', level: 68 },
-    { name: 'Manajemen TI', level: 70 },
+  { category: 'Analisis Bisnis & Sistem', items: [
+    { name: 'Business Process Analysis', level: 82 },
+    { name: 'Software Engineering (SDLC)', level: 85 },
+    { name: 'Requirements Engineering', level: 80 },
+    { name: 'Enterprise Solutions (ERP)', level: 76 },
+    { name: 'Data Analysis & Insights', level: 78 },
   ]},
-  { category: 'Alat & Kolaborasi', items: [
-    { name: 'Git / GitHub', level: 78 },
-    { name: 'Trello', level: 82 },
-    { name: 'Google Workspace', level: 88 },
-    { name: 'Microsoft Office 365', level: 90 },
-    { name: 'Figma', level: 70 },
+  { category: 'Alat & Ekosistem', items: [
+    { name: 'VS Code & Dev Tools', level: 92 },
+    { name: 'Postman / API Testing', level: 85 },
+    { name: 'DBeaver', level: 84 },
+    { name: 'Linux / Bash Scripting', level: 78 },
+    { name: 'Trello & Agile / Scrum', level: 82 },
   ]},
 ];
 
 export const services = [
-  { icon: Code2, title: 'Web Development', description: 'Membangun aplikasi web responsif dan fungsional menggunakan React, JavaScript, dan teknologi front-end modern.' },
-  { icon: Palette, title: 'UI/UX & Creative Design', description: 'Merancang antarmuka yang intuitif dan visual yang menarik — dari wireframe hingga desain siap produksi.' },
-  { icon: Database, title: 'Database Management', description: 'Merancang skema database, menulis query SQL yang efisien, dan mengelola data menggunakan PostgreSQL dan DBeaver.' },
-  { icon: BarChart3, title: 'Data Analysis', description: 'Mengolah dan menganalisis data akademik maupun bisnis, menyusun laporan dan kesimpulan berbasis bukti.' },
-  { icon: Wrench, title: 'Technical Troubleshooting', description: 'Pemecahan masalah perangkat dan perangkat lunak — dari recovery data hingga konfigurasi sistem.' },
-  { icon: Shield, title: 'Branding & Content', description: 'Membuat identitas visual, tagline, deskripsi produk, dan strategi komunikasi untuk platform digital.' },
+  { icon: Code2, title: 'Full-Stack Web Engineering', description: 'Arsitektur web modern skala produksi menggunakan Next.js, React, Laravel, dan integrasi API yang tangguh serta cepat.' },
+  { icon: Smartphone, title: 'Mobile Application', description: 'Pengembangan cross-platform elegan menggunakan Flutter dengan performa native, animasi mulus, dan arsitektur rapi.' },
+  { icon: Palette, title: 'UI/UX & Design Systems', description: 'Rancangan visual interaktif berstandar tinggi, glassmorphism, micro-interactions, dan pengalaman visual sekelas produk Apple.' },
+  { icon: Database, title: 'Database & Cloud Solutions', description: 'Perancangan basis data relasional PostgreSQL/MySQL yang optimal, integrasi Supabase, dan data modeling skalabel.' },
+  { icon: Server, title: 'DevOps & Server Deployment', description: 'Kontainerisasi Docker, reverse proxy Nginx, optimasi deployment Vercel, serta otomatisasi pipeline Git yang andal.' },
+  { icon: BarChart3, title: 'Business Tech Alignment', description: 'Menghubungkan analisa proses bisnis dengan solusi teknologi tepat sasaran agar menghasilkan nilai efisiensi nyata.' },
 ];
 
 export const projects = [

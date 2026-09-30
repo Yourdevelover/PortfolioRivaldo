@@ -23,26 +23,26 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-navy-950/90 backdrop-blur-lg border-b border-navy-800/50 shadow-lg shadow-navy-950/20'
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 safe-top transition-all duration-500 ${
+        isScrolled ? 'nav-glass' : 'bg-transparent'
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
+      <nav className="max-w-5xl w-full mx-auto px-5 sm:px-6 flex items-center justify-between h-12">
+        {/* Logo */}
         <a
           href="#"
-          className="text-lg font-bold tracking-tight text-navy-100 hover:text-amber-400 transition-colors"
+          className="text-sm font-semibold text-white/90 hover:text-white transition-colors apple-focus"
         >
-          rivaldo<span className="text-amber-400">.</span>dev
+          rivaldo<span className="text-apple-blue">.</span>dev
         </a>
 
-        <ul className="hidden md:flex items-center gap-8">
+        {/* Desktop nav */}
+        <ul className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm text-navy-300 hover:text-amber-400 transition-colors duration-300 font-medium"
+                className="text-xs text-white/60 hover:text-white transition-colors duration-300 font-medium apple-focus"
               >
                 {link.label}
               </a>
@@ -50,31 +50,38 @@ export default function Navbar() {
           ))}
         </ul>
 
+        {/* CTA — desktop */}
         <a
           href="#contact"
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-lg bg-amber-500/10 text-amber-400 border border-amber-500/20 hover:bg-amber-500/20 hover:border-amber-500/40 transition-all duration-300"
+          className="hidden md:inline-flex items-center px-4 py-1.5 text-xs font-medium rounded-full bg-apple-blue text-white hover:bg-blue-500 transition-all duration-300 apple-focus"
         >
           Hubungi Saya
         </a>
 
+        {/* Mobile toggle */}
         <button
           onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className="md:hidden p-2 text-navy-300 hover:text-amber-400 transition-colors"
-          aria-label="Toggle menu"
+          className="md:hidden p-2 text-white/60 hover:text-white transition-colors apple-focus"
+          aria-label={isMobileOpen ? 'Tutup menu' : 'Buka menu'}
         >
-          {isMobileOpen ? <X size={22} /> : <Menu size={22} />}
+          {isMobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </nav>
 
+      {/* Mobile menu */}
       {isMobileOpen && (
-        <div className="md:hidden fixed inset-0 top-16 bg-navy-950/98 backdrop-blur-lg">
+        <div className="md:hidden fixed inset-0 top-12 z-40 safe-top" style={{
+          background: 'rgba(0, 0, 0, 0.92)',
+          backdropFilter: 'blur(40px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(40px) saturate(180%)',
+        }}>
           <nav className="flex flex-col items-center justify-center h-full gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileOpen(false)}
-                className="text-xl font-medium text-navy-200 hover:text-amber-400 transition-colors"
+                className="text-2xl font-semibold text-white/80 hover:text-white transition-colors"
               >
                 {link.label}
               </a>
@@ -82,7 +89,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setIsMobileOpen(false)}
-              className="mt-4 px-8 py-3 text-base font-medium rounded-lg bg-amber-500 text-navy-950 hover:bg-amber-400 transition-colors"
+              className="mt-4 px-6 py-2.5 text-sm font-medium rounded-full bg-apple-blue text-white hover:bg-blue-500 transition-colors"
             >
               Hubungi Saya
             </a>

@@ -5,60 +5,155 @@
 @layer base {
   * {
     scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   body {
-    @apply bg-navy-950 text-navy-100 font-sans;
+    @apply bg-black text-white/90 font-sans;
+    font-feature-settings: 'kern' 1, 'liga' 1;
   }
 
   ::selection {
-    @apply bg-amber-500/30 text-white;
+    @apply bg-blue-500/30 text-white;
   }
 
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-navy-900;
+    @apply bg-transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    @apply bg-navy-600 rounded-full;
+    @apply bg-white/10 rounded-full;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-navy-500;
+    @apply bg-white/20;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
 @layer components {
+  /* Apple-style section spacing */
   .section-padding {
-    @apply py-20 md:py-28 px-6 md:px-12 lg:px-24;
+    @apply py-20 sm:py-24 md:py-32 lg:py-40 px-5 sm:px-8 md:px-12 lg:px-20;
   }
 
-  .glass-card {
-    @apply bg-navy-800/40 border border-navy-700/50 rounded-xl backdrop-blur-sm;
+  /* Apple frosted glass — refined for dark background */
+  .apple-glass {
+    background: rgba(28, 28, 30, 0.72);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
   }
 
-  .glass-card-hover {
-    @apply glass-card transition-all duration-300 hover:bg-navy-800/60 hover:border-navy-600/60 hover:shadow-lg hover:shadow-navy-900/20;
+  .apple-glass-hover {
+    background: rgba(28, 28, 30, 0.72);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  .gradient-text {
-    @apply bg-gradient-to-r from-amber-400 via-amber-300 to-amber-500 bg-clip-text text-transparent;
+  .apple-glass-hover:hover {
+    background: rgba(44, 44, 46, 0.8);
+    border-color: rgba(255, 255, 255, 0.14);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(-2px);
   }
 
-  .section-title {
-    @apply text-2xl md:text-3xl font-bold text-navy-100 mb-2;
+  /* Apple-style navbar glass */
+  .nav-glass {
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
   }
 
-  .section-label {
-    @apply text-amber-400 font-mono text-sm tracking-widest uppercase mb-3;
+  /* Section header typography — Apple style */
+  .section-eyebrow {
+    @apply text-blue-400 text-sm sm:text-base font-semibold tracking-wide;
   }
 
+  .section-headline {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+  }
+
+  .section-subheadline {
+    @apply text-lg sm:text-xl md:text-2xl text-white/50 font-medium;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  /* Apple blue gradient text */
+  .apple-gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, #2997FF 0%, #5AC8FA 50%, #30D158 100%);
+  }
+
+  /* Project card image overlay */
   .project-card-overlay {
-    @apply absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/60 to-transparent;
+    @apply absolute inset-0;
+    background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.85) 100%);
+  }
+
+  /* Apple-style pill button */
+  .apple-pill {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full transition-all duration-300;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .apple-pill:hover {
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* Apple-style skill progress */
+  .skill-track {
+    @apply h-1 rounded-full overflow-hidden;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .skill-fill {
+    @apply h-full rounded-full;
+    background: linear-gradient(90deg, #2997FF, #5AC8FA);
+    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Tag / chip */
+  .apple-tag {
+    @apply px-3 py-1 text-xs font-medium rounded-full;
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Focus styles for accessibility */
+  .apple-focus:focus-visible {
+    outline: 2px solid #2997FF;
+    outline-offset: 2px;
+    border-radius: 8px;
   }
 }
 
@@ -77,5 +172,13 @@
   }
   .animation-delay-1000 {
     animation-delay: 1000ms;
+  }
+
+  /* Safe area insets for iPhone notch / Dynamic Island */
+  .safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }

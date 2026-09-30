@@ -7,14 +7,14 @@ function SkillBar({ name, level, delay }: { name: string; level: number; delay: 
   return (
     <div ref={ref} className="space-y-1.5">
       <div className="flex items-center justify-between">
-        <span className="text-sm text-navy-200 font-medium">{name}</span>
-        <span className={`text-xs font-mono text-navy-400 transition-opacity duration-500 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
+        <span className="text-sm text-white/70 font-medium">{name}</span>
+        <span className={`text-xs font-mono text-white/30 transition-opacity duration-500 ${isInView ? 'opacity-100' : 'opacity-0'}`}>
           {level}%
         </span>
       </div>
-      <div className="h-1.5 bg-navy-800 rounded-full overflow-hidden">
+      <div className="skill-track">
         <div
-          className="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400 transition-all duration-1000 ease-out"
+          className="skill-fill"
           style={{
             width: isInView ? `${level}%` : '0%',
             transitionDelay: `${delay}ms`,
@@ -31,27 +31,34 @@ export default function Skills() {
 
   return (
     <section id="skills" className="section-padding relative">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-navy-900/30 to-transparent pointer-events-none" />
+      {/* Divider */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-px bg-white/[0.06]" />
 
-      <div className="relative max-w-6xl mx-auto">
-        <div ref={headerRef} className={`transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <p className="section-label">Keahlian & Kompetensi</p>
-          <h2 className="section-title">
-            Kemampuan yang terus saya <span className="gradient-text">kembangkan</span>
+      <div className="relative max-w-5xl mx-auto">
+        {/* Header */}
+        <div ref={headerRef} className={`text-center transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+          <p className="section-eyebrow mb-4">Keahlian & Kompetensi</p>
+          <h2 className="section-headline">
+            Kemampuan yang terus{' '}
+            <span className="apple-gradient-text">berkembang.</span>
           </h2>
+          <p className="section-subheadline mt-4 max-w-xl mx-auto">
+            Teknologi yang saya kuasai dan terus pelajari setiap hari.
+          </p>
         </div>
 
-        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Skill categories grid */}
+        <div className="mt-14 sm:mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {skills.map((category, catIdx) => (
             <div
               key={category.category}
-              className={`glass-card p-6 transition-all duration-700 ${
-                headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`apple-glass p-5 sm:p-6 transition-all duration-700 ${
+                headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
               style={{ transitionDelay: `${(catIdx + 1) * 100}ms` }}
             >
-              <h3 className="text-sm font-semibold text-navy-100 mb-5 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
+              <h3 className="text-sm font-semibold text-white/90 mb-5 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-apple-blue" />
                 {category.category}
               </h3>
               <div className="space-y-3.5">
@@ -68,28 +75,30 @@ export default function Skills() {
           ))}
         </div>
 
-        <div ref={servicesRef} className="mt-20">
-          <div className={`transition-all duration-700 ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <p className="section-label">Layanan</p>
-            <h3 className="text-xl md:text-2xl font-bold text-navy-100 mb-10">
-              Apa yang bisa saya <span className="gradient-text">kontribusikan</span>
+        {/* Services */}
+        <div ref={servicesRef} className="mt-24 sm:mt-28">
+          <div className={`text-center transition-all duration-700 ${servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <p className="section-eyebrow mb-4">Layanan</p>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight">
+              Apa yang bisa saya{' '}
+              <span className="apple-gradient-text">kontribusikan.</span>
             </h3>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="mt-12 sm:mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {services.map(({ icon: Icon, title, description }, i) => (
               <div
                 key={title}
-                className={`glass-card-hover p-6 group transition-all duration-700 ${
-                  servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                className={`apple-glass-hover p-5 sm:p-6 group transition-all duration-700 ${
+                  servicesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 80}ms` }}
               >
-                <div className="p-3 rounded-lg bg-amber-500/10 text-amber-400 w-fit mb-4 group-hover:bg-amber-500/20 transition-colors duration-300">
-                  <Icon size={22} />
+                <div className="p-2.5 rounded-apple-sm bg-apple-blue/10 text-apple-blue w-fit mb-4 group-hover:bg-apple-blue/15 transition-colors duration-300">
+                  <Icon size={20} />
                 </div>
-                <h4 className="text-base font-semibold text-navy-100 mb-2">{title}</h4>
-                <p className="text-sm text-navy-400 leading-relaxed">{description}</p>
+                <h4 className="text-base font-semibold text-white/90 mb-2">{title}</h4>
+                <p className="text-sm text-white/40 leading-relaxed">{description}</p>
               </div>
             ))}
           </div>
